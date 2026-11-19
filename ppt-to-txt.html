@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Extract text from PowerPoint presentations and save it as a TXT file, privately in your browser."
+    />
+    <title>Free No Registration — PowerPoint to TXT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="ppt-to-txt.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/cfb@1.2.2/dist/cfb.min.js" defer></script>
+    <script src="ppt-to-txt.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html" aria-label="Free No Registration home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <path d="M27.5 4.5 4.8 13.2c-1.1.4-1.1 2 .1 2.4l8.4 2.7 2.7 8.4c.4 1.2 2 1.2 2.4.1L27.5 4.5Z" fill="currentColor"/>
+              <path d="m13.3 18.3 7.1-7.1" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span>Free No Registration</span>
+        </a>
+        <div class="sidebar-content">
+          <div class="side-label">YOUR WORKSPACE</div>
+          <a class="nav-item active" href="ppt-to-txt.html" aria-current="page">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4.5h14v15H5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 9h8m-8 3h8m-8 3h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            PowerPoint to TXT
+            <span class="nav-arrow">↗</span>
+          </a>
+          <a class="secondary-nav" href="index.html">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.75h7l4 4v12.5h-11V3.75Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M13.5 3.75v4h4m-7.5 5h4m-4 3.5h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            PDF to PowerPoint
+          </a>
+          <div class="sidebar-note">
+            <span class="note-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3.75 14.6 9l5.65.82-4.1 4 .97 5.63L12 16.8l-5.12 2.7.98-5.63-4.1-4L9.4 9 12 3.75Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </span>
+            <strong>Made for your files</strong>
+            <p>Your presentation is processed right here in your browser. It never gets uploaded.</p>
+            <div class="privacy-check"><span>✓</span> Private by design</div>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <span class="avatar">P</span>
+          <div class="account-copy"><strong>Personal workspace</strong><span>Free plan</span></div>
+          <button class="more-button" type="button" aria-label="More options">···</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>Tools</span><span class="crumb-slash">/</span><strong>PowerPoint to TXT</strong></div>
+          <a class="help-link" href="mailto:hello@example.com"><span class="help-mark">?</span> Help center</a>
+        </header>
+        <section class="workspace">
+          <div class="page-heading">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-dot"></span> DOCUMENT TOOLS</div>
+              <h1>PowerPoint to TXT</h1>
+              <p class="page-description">Pull the text from your slides and save it as a plain text file.</p>
+            </div>
+            <div class="secure-badge">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5 4.25 5v4.25c0 3.65 2.45 6.85 5.75 8.25 3.3-1.4 5.75-4.6 5.75-8.25V5L10 2.5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m7.6 9.9 1.6 1.6 3.3-3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Files stay on your device
+            </div>
+          </div>
+
+          <div class="converter-card">
+            <div class="card-topline">
+              <div class="step-indicator"><span class="step-number">1</span><span>Upload your presentation</span></div>
+              <span class="supported-label">PPT &amp; PPTX <span class="label-dot">·</span> No size limit</span>
+            </div>
+            <div class="drop-zone" id="drop-zone" role="button" tabindex="0" aria-label="Choose a PowerPoint file or drag and drop it here">
+              <input id="file-input" type="file" accept=".ppt,.pptx,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden />
+              <div class="upload-illustration" aria-hidden="true">
+                <span class="upload-orbit orbit-one"></span>
+                <span class="upload-orbit orbit-two"></span>
+                <span class="file-sheet"><span class="pdf-label ppt-label">PPT</span><i></i><i></i><i></i></span>
+                <span class="upload-arrow">↑</span>
+              </div>
+              <div class="drop-copy">
+                <h2>Drop your PowerPoint here</h2>
+                <p>or <button class="browse-button" id="browse-button" type="button">browse files</button> from your device</p>
+              </div>
+              <div class="drop-footer">
+                <span><span class="mini-check">✓</span> No sign-up needed</span>
+                <span class="footer-divider"></span>
+                <span>No file size limit</span>
+                <span class="footer-divider"></span>
+                <span>100% private</span>
+              </div>
+            </div>
+            <div id="status-message" class="status-message" role="status" aria-live="polite" hidden></div>
+            <section id="file-panel" class="file-panel text-file-panel" aria-live="polite" hidden>
+              <div class="file-summary">
+                <div class="pdf-file-icon ppt-file-icon"><span>PPT</span></div>
+                <div class="file-details">
+                  <strong id="file-name">presentation.pptx</strong>
+                  <span id="file-meta">0 slides · 0 KB</span>
+                </div>
+                <button id="remove-file" class="remove-button" type="button" aria-label="Remove presentation">×</button>
+              </div>
+              <div class="preview-heading">
+                <div><strong>Extracted text</strong><span id="slide-count">Text from your slides, ready to save</span></div>
+                <span class="output-format"><span class="txt-icon">TXT</span> TXT</span>
+              </div>
+              <pre id="text-preview" class="text-preview" tabindex="0"></pre>
+              <div class="convert-row">
+                <p><span class="info-icon">i</span> Slide formatting and images aren’t included.</p>
+                <div class="text-actions">
+                  <button id="copy-button" class="copy-button" type="button">Copy text</button>
+                  <button id="convert-button" class="convert-button" type="button">
+                    <span>Download TXT</span><span class="button-arrow">↓</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="benefits">
+            <div class="benefit"><span class="benefit-icon icon-fast"><svg viewBox="0 0 24 24" fill="none"><path d="m13.25 2.75-8 11h6l-.5 7.5 8-11h-6l.5-7.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span><span><strong>Quick &amp; easy</strong><small>Text in just a few seconds</small></span></div>
+            <div class="benefit"><span class="benefit-icon icon-layout"><svg viewBox="0 0 24 24" fill="none"><rect x="3.75" y="4.25" width="16.5" height="15.5" rx="2.25" stroke="currentColor" stroke-width="1.7"/><path d="M8 9h8m-8 3.5h8m-8 3.5h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span><strong>Readable output</strong><small>Text, ready to copy or save</small></span></div>
+            <div class="benefit"><span class="benefit-icon icon-private"><svg viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span><strong>Private by default</strong><small>Nothing leaves your device</small></span></div>
+          </div>
+          <footer class="page-footer"><span>© 2026 Free No Registration</span><span>Created by Joemar C. Resmondo</span></footer>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

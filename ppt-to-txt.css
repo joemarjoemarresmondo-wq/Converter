@@ -1,0 +1,30 @@
+.ppt-label { color: #e77860; }
+.ppt-file-icon { border-color: #f3ded9; background: #fff8f6; }
+.ppt-file-icon span { color: #dc755f; }
+.txt-icon { display: grid; width: 25px; height: 18px; place-items: center; border-radius: 4px; color: #fff; background: #657fc4; font-size: 7px; font-weight: 700; }
+.text-preview {
+  min-height: 150px;
+  max-height: 340px;
+  overflow: auto;
+  margin: 13px 0 0;
+  padding: 14px;
+  border: 1px solid #eeedf4;
+  border-radius: 7px;
+  color: #505666;
+  background: #fbfbfd;
+  font-family: "DM Sans", sans-serif;
+  font-size: 11px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.text-actions { display: flex; align-items: center; gap: 9px; }
+.copy-button { min-height: 37px; padding: 0 13px; border: 1px solid #e6e5ed; border-radius: 6px; color: #636a7a; background: #fff; font-size: 10px; font-weight: 600; }
+.copy-button:hover { border-color: #c8c2f0; color: #6254d8; background: #fbfaff; }
+.text-file-panel .convert-row { flex-wrap: wrap; }
+.text-file-panel .convert-row p { line-height: 1.5; }
+
+@media (max-width: 520px) {
+  .text-actions { width: 100%; }
+  .copy-button { flex: 1; }
+}
